@@ -18,19 +18,31 @@
 </style>
 
 <body>
-    <div class="flex flex-col h-screen">
-        <div class="bg-red-300 h-[50px] text-center">navbar</div>
-        <div class="flex flex-1 justify-center">
-            <div class="bg-red-100 w-52">mn</div>
-            <div>
+    <div class="w-full box-border mx-auto">
+        <div class="bg-red-300 h-[50px]">navbar</div>
+        <div class="flex justify-start">
+            <div class="bg-green-100 w-[230px] h-screen">menu</div>
+            <div class="flex flex-col w-full">
+                <div class="flex flex-col w-full px-10 py-8 gap-y-5">
+                    <div class="text-2xl font-semiblod">ระบบ จัดการภาพสไลด์</div>
+                    <div class="flex justify-end items-center bg-yellow-50 gap-x-5">
+                        <div>refresh</div>
+                        <div>save</div>
+                        <input type="checkbox" id="selectAllCheckbox"></input>
+                        <label for="selectAllCheckbox">เลือกทั้งหมด</label>
+                        <button type="button">delete</button>
+                    </div>
+                </div>
                 <table data-hw="hw">
                     <thead>
                         <tr>
-                            <th>No</th>
                             <th>ลำดับ</th>
+                            <th>เลื่อน</th>
                             <th>รูป</th>
                             <th>link</th>
                             <th>วันที่</th>
+                            <th>แก้ไข</th>
+                            <th>ลบ</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -85,6 +97,23 @@
                 dateCell.textContent = info[i].dateAdd;
 
                 trCell.appendChild(dateCell);
+
+                // edit
+                const editCell = document.createElement("td");
+                editCell.innerHTML = "info";
+
+                trCell.appendChild(editCell);
+
+                // delete
+                const delCell = document.createElement("td");
+                const checkCell = document.createElement("input");
+
+                checkCell.type = "checkbox";
+
+                trCell.appendChild(delCell);
+                delCell.appendChild(checkCell);
+
+                // delCell.innerHTML = "info";
             }
         }
 
